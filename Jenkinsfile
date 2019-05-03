@@ -1,8 +1,9 @@
 node {
  stage('SCM Checkout'){
-git 'https://github.com/pradippokharkar/mavensample'
+  git 'https://github.com/pradippokharkar/mavensample'
 }
 stage('Compile-Package'){
-sh 'mvn package'
+def mvnHOME=tool name: 'Maven1', type: 'maven'
+ sh "${mvnHOME}/bin/mvn package"
 }
 }
